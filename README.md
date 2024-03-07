@@ -21,7 +21,8 @@
   "admin":{
     "ahramcov": "2000"
   },  
-  "date": "2024-02-12 14:43:16.248170",  
+  "date": "2024-02-12 14:43:16.248170",
+  "history": [],
   "max_count_players": "5",  
   "number": "227281",  
   "start_money": "2000",  
@@ -38,6 +39,20 @@
     "ahramcov": "2000"
   },
   "date": "2024-02-12 13:38:20.066872",
+  "history": [
+    [
+      "user konorev was added in room",
+      "0"
+    ],
+    [
+      "user konorev get 1000 money in room",
+      "0"
+    ],
+    [
+      "user ahramcov get 2222 money in room",
+      "1"
+    ]
+  ],
   "max_count_players": "5",
   "number": "227281",
   "start_money": "2000",
@@ -53,14 +68,14 @@
 {"konorev": "3000"}
 ```
 * **Добавить пользователя в комнату**
-```http://127.0.0.1:5000/room=227281/add_user=markin``` - Добавить пользователя ```konorev``` в комнату ```227281```. Ответ сервера:
+```http://127.0.0.1:5000/room=227281/add_user=markin``` - Добавить пользователя ```markin``` в комнату ```227281```. Ответ сервера:
 ```json
-user markin added in room 227281
+user markin was added in room 227281
 ```
 * **Удалить пользователя из комнаты**
 ```http://127.0.0.1:5000/room=227281/del_user=markin``` - Удалить пользователя ```markin``` из комнаты ```227281```. Ответ сервера:
 ```json
-user markin deleted from room 227281
+user markin was deleted from room 227281
 ```
 * **Удалить комнату**
 ```http://127.0.0.1:5000/del_room=227281``` - Удалить комнату ```227281```. **Ответ сервера:**

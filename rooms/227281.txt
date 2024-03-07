@@ -1,1 +1,0 @@
-{"number": "227281", "max_count_players": "5", "start_money": "2000", "date": "2024-02-12 13:38:20.066872", "admin": {"ahramcov": "2000"}, "users": {"konorev": "1000"}, "status": true}

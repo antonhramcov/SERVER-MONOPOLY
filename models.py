@@ -11,6 +11,7 @@ class room:
         self.admin = {admin_name:money}
         self.users = {}
         self.status = True
+        self.history = []
         data = {
             'number': self.number,
             'max_count_players': self.max_count_players,
@@ -18,8 +19,10 @@ class room:
             'date': self.date,
             'admin': self.admin,
             'users': self.users,
-            'status': self.status
+            'status': self.status,
+            'history':self.history
         }
+
         with open(f'rooms\{number}.txt', 'w', encoding='utf-8') as f:
             f.write(dumps(data))
 
@@ -42,7 +45,8 @@ class room:
             'date':room['date'],
             'admin':room['admin'],
             'users':room['users'],
-            'status':room['status']
+            'status':room['status'],
+            'history':room['history']
         }
         with open(f'rooms\{id_room}.txt', 'w', encoding='utf-8') as f:
             f.write(dumps(data))
@@ -52,8 +56,9 @@ class room:
             from_json = room.load_from_json(id_room)
             if int(from_json['max_count_players'])>len(from_json['users'])+2:
                 from_json['users'][name] = from_json['start_money']
+                from_json['history'].append((f'user {name} was added in room','0'))
                 room.save_to_json(id_room, from_json)
-                return f'user {name} added in room {id_room}'
+                return f'user {name} was added in room {id_room}'
             else:
                 return f'error: Maximum number of players in a room {id_room} :-('
         else:
@@ -65,8 +70,9 @@ class room:
             from_json = room.load_from_json(id_room)
             if name in from_json['users']:
                 del from_json['users'][name]
+                from_json['history'].append((f'user {name} was deleted from room', '0'))
                 room.save_to_json(id_room, from_json)
-                return f'user {name} deleted from room {id_room}'
+                return f'user {name} was deleted from room {id_room}'
             else:
                 return f'error: user {name} not found in room {id_room} :(('
         else:
@@ -78,10 +84,12 @@ class room:
             from_json = room.load_from_json(id_room)
             if name in from_json['users']:
                 from_json['users'][name] = str(int(from_json['users'][name]) + int(money))
+                from_json['history'].append((f'user {name} get {money} money in room','0'))
                 room.save_to_json(id_room, from_json)
                 return f'user {name} get {money} money in room {id_room}'
             elif name in from_json['admin']:
                 from_json['admin'][name] = str(int(from_json['admin'][name]) + int(money))
+                from_json['history'].append((f'user {name} get {money} money in room', '1'))
                 room.save_to_json(id_room, from_json)
                 return f'user {name} get {money} money in room {id_room}'
             else:

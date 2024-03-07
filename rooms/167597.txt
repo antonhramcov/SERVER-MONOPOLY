@@ -1,0 +1,1 @@
+{"number": "167597", "max_count_players": "5", "start_money": "2000", "date": "2024-03-07 22:21:57.315185", "admin": {"ahramcov": "4222"}, "users": {"konorev": "3000"}, "status": true, "history": [["user konorev was added in room", "0"], ["user konorev get 1000 money in room", 0], ["user ahramcov get 2222 money in room", 1]]}
