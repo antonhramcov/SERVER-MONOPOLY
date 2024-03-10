@@ -32,6 +32,11 @@ def get_about_room(room_id):
 def get_about_user(room_id, user):
     return room.get_about_user(room_id, user)
 
+# Получение истории действий в комнате
+# http://127.0.0.1:5000/room=227281/history
+@app.route('/room=<room_id>/history', methods = ['GET'])
+def get_history(room_id):
+    return room.get_history(room_id)
 
 # Добавить пользователя в комнату
 # http://127.0.0.1:5000/room=227281/add_user=konorev

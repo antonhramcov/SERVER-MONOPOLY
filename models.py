@@ -110,6 +110,12 @@ class room:
         else:
             return f'error: room with number {id_room} not found :/'
 
+    def get_history(id_room:str):
+        if path.exists(f'rooms\{id_room}.txt'):
+            from_json = room.load_from_json(id_room)
+            return dumps(from_json['history'])
+        else:
+            return f'error: room with number {id_room} not found :/'
 
     def del_room(id_room:str):
         if path.exists(f'rooms\{id_room}.txt'):
